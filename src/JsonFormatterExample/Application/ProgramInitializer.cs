@@ -39,14 +39,14 @@ namespace Application
 #if DEBUG
                     Console.WriteLine($"FormatAction{Environment.NewLine}" + JsonConvert.SerializeObject(context));
 #endif
-                    Actions.Format(context);
+                    // your code here
                 })
                 .WithParsed<AboutAction>(context =>
                 {
 #if DEBUG
                     Console.WriteLine($"AboutAction{Environment.NewLine}" + JsonConvert.SerializeObject(context));
 #endif
-                    Actions.About();
+                    // your code here
                 })
                 .WithNotParsed(errors =>
                 {
