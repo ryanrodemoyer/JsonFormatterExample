@@ -11,6 +11,12 @@ This is an application where you can start learning how to write unit tests. Con
       * ProgramInitializer.cs: look for the lines `// your code here` in conjunction with the method comments to implement the method. Tests are in Application.Tests->ProgramInitializerTests.cs.
    * Application.Tests
       * All tests need implemented. The only file to skip is Any.cs as it's a helper class for writing tests.
+      
+### Getting Started
+
+1. Clone the repo.
+1. Run the command `git checkout stubs` to switch to the `stubs` branch.
+1. Start coding!
 
 ### 
 
