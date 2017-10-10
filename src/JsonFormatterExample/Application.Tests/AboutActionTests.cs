@@ -17,9 +17,11 @@ namespace Application.Tests
         [Test]
         public void create_default_instance()
         {
-            var aa = new AboutAction();
+            // arrange
 
-            Assert.IsNotNull(aa);
+            // act
+
+            // assert
         }
 
         /// <summary>
@@ -28,10 +30,11 @@ namespace Application.Tests
         [Test]
         public void class_decorated_with_verb_attribute_and_attribute_has_values()
         {
-            var attr = (VerbAttribute)typeof(AboutAction).GetCustomAttributes(typeof(VerbAttribute)).Single();
+            // arrange
 
-            Assert.AreEqual("about", attr.Name);
-            Assert.AreEqual("Tell you, about me.", attr.HelpText);
+            // act
+            
+            // assert
         }
         
         /// <summary>
@@ -42,7 +45,11 @@ namespace Application.Tests
         [Test]
         public void type_is_empty_and_contains_no_functional_items()
         {
+            // arrange
 
+            // act
+
+            // assert
         }
     }
 }

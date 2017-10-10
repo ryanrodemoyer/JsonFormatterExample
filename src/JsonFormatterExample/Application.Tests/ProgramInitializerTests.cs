@@ -17,8 +17,11 @@ namespace Application.Tests
         [Test]
         public void null_dependency_to_constructor_throws_expected()
         {
-            // arrange, act and assert
-            Assert.Throws<ArgumentNullException>(() => new ProgramInitializer(null));
+            // arrange
+
+            // act
+
+            // assert
         }
 
         /// <summary>
@@ -28,14 +31,10 @@ namespace Application.Tests
         public void about__valid_args_provided_about_action_invoked()
         {
             // arrange
-            string[] args = { "about" };
-            var actions = Isolate.Fake.Instance<IProgramActions>();
 
             // act
-            new ProgramInitializer(actions).Go(args);
 
             // assert
-            Isolate.Verify.WasCalledWithAnyArguments(() => actions.About());
         }
 
         /// <summary>
@@ -45,21 +44,10 @@ namespace Application.Tests
         public void format__valid_args_provided_format_action_invoked()
         {
             // arrange
-            string[] args = "format file.json --formatted".Split(' ');
-            var actions = Isolate.Fake.Instance<IProgramActions>();
 
             // act
-            new ProgramInitializer(actions).Go(args);
 
             // assert
-            Isolate.Verify
-                .WasCalledWithArguments(() => actions.Format(Any.FormatAction))
-                .Matching(methodArgs =>
-                {
-                    var fa = (FormatAction) methodArgs[0];
-
-                    return fa.InputPath == "file.json" && fa.UseFormatted && !fa.UseNone;
-                });
         }
 
         [TestCase("format file.json --none --formatted", true)]
@@ -68,17 +56,11 @@ namespace Application.Tests
         [TestCase("format", true)]
         public void format_action_requires_UseFormatted_or_UseNone(string args, bool expectedHasErrors)
         {
-            var result = Parser.Default.ParseArguments<FormatAction, AboutAction>(args.Split(' '));
+            // arrange
 
-            if (expectedHasErrors)
-            {
-                CollectionAssert.IsNotEmpty(((NotParsed<object>)result).Errors);
-            }
-            else
-            {
-                Parsed<object> r;
-                Assert.DoesNotThrow(() => r = (Parsed<object>)result);
-            }
+            // act
+
+            // assert
         }
 
         /// <summary>
@@ -93,14 +75,10 @@ namespace Application.Tests
         public void invalid_argument_combinations__actions_not_called(string args)
         {
             // arrange
-            var actions = Isolate.Fake.Instance<IProgramActions>();
 
             // act
-            new ProgramInitializer(actions).Go(args.Split(' '));
 
             // assert
-            Isolate.Verify.WasNotCalled(() => actions.Format(Any.FormatAction));
-            Isolate.Verify.WasNotCalled(() => actions.About());
         }
 
         /// <summary>
@@ -118,37 +96,11 @@ namespace Application.Tests
         [TestCase("wrong myfile.json --none",       "fail", "true")]
         public void args_parsed_as_expected_by_commandlineparser(string args, string expectedWithParsed, string expectedWithNotParsed)
         {
-            Parser.Default.ParseArguments<FormatAction, AboutAction>(args.Split(' '))
-              .WithParsed(context =>
-              {
-                  if (expectedWithParsed == "true")
-                  {
-                      Assert.True(true);
-                  }
-                  else if (expectedWithParsed == "fail")
-                  {
-                      Assert.Fail();
-                  }
-                  else
-                  {
-                      Assert.Fail();
-                  }
-              })
-              .WithNotParsed(context =>
-              {
-                  if (expectedWithNotParsed == "true")
-                  {
-                      Assert.True(true);
-                  }
-                  else if (expectedWithNotParsed == "fail")
-                  {
-                      Assert.Fail();
-                  }
-                  else
-                  {
-                      Assert.Fail();
-                  }
-              });
+            // arrange
+
+            // act
+
+            // assert
         }
     }
 }
