@@ -1,11 +1,16 @@
 # Json Formatter Example
 
 ## Readme
-This is an application where you can start learning how to unit test. Contained in this repo is a console app, in varying stages, that allow you to write code and unit tests using NUnit and Typemock Isolator (non-free version so you'll need a valid trial or paid license). The goal would be for a developer to clone this repo and implement the test stubs in the `stubs` branch using the reference branch `master` for questions or as a cheatsheet.
+This is an application where you can start learning how to write unit tests. Contained in this repo is a console app, in varying stages, that allow you to write code and unit tests using NUnit and Typemock Isolator (non-free version so you'll need a valid trial or paid license). The goal would be for a developer to clone this repo and implement the tests in the `stubs` branch using the reference branch `master` for questions or as a cheatsheet/guide.
 
 ### Branch Definitions
 * master: The reference implementation using NUnit and Typemock Isolator. Contains the complete functional application and tests. Code coverage at 96% on the Application project.
-* stubs: master minus code to create stubs on the functional and test methods.
+* stubs: master minus code to create stubs on the functional and test methods. The goal of this is to code the implementation and tests at the same time!
+   * Application
+      * DefaultProgramActions.cs: Implement the methods in the file as there are comments on each method to guide the user in the implementation. Tests are in Application.Tests->DefaultProgramActionsTests.cs.
+      * ProgramInitializer.cs: look for the lines `// your code here` in conjunction with the method comments to implement the method. Tests are in Application.Tests->ProgramInitializerTests.cs.
+   * Application.Tests
+      * All tests need implemented. The only file to skip is Any.cs as it's a helper class for writing tests.
 
 ### 
 
